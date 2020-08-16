@@ -19,7 +19,7 @@ class CurrencyPresenter {
         task.fetch() { [weak self] currencies in
             guard let self = self else { return }
             self.currencies = currencies
-            self.view?.updatePicker()
+            self.view?.updateCurrencyPicker()
         }
     }
 
@@ -28,7 +28,7 @@ class CurrencyPresenter {
         task.fetch() { [weak self] exchageRates in
             guard let self = self else { return }
             self.exchageRates = exchageRates
-            self.view?.updateTableView()
+            self.view?.updateExchangeRatesTableView()
         }
     }
 }

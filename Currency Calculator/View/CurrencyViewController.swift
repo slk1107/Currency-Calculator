@@ -9,8 +9,8 @@
 import UIKit
 
 protocol CurrencyViewControllerUseCase: AnyObject {
-    func updateTableView()
-    func updatePicker()
+    func updateExchangeRatesTableView()
+    func updateCurrencyPicker()
 }
 
 class CurrencyViewController: UIViewController {

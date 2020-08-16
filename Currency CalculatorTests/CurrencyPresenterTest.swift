@@ -43,7 +43,7 @@ class CurrencyPresenterTest: XCTestCase {
 }
 
 extension CurrencyPresenterTest: CurrencyViewControllerUseCase {
-    func updateTableView() {
+    func updateExchangeRatesTableView() {
         assert(presenter.exchageRates != nil)
         exp?.fulfill()
     }
