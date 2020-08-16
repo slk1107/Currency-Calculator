@@ -28,15 +28,8 @@ class APITests: XCTestCase {
 
         let task = FetchCurrenciesTask()
 
-        task.fetch() { data in
-            assert(data != nil)
-
-            if let data = data,
-                let dataString = String(data: data, encoding: .utf8) {
-                print(dataString)
-            } else {
-                assertionFailure("data encode fail")
-            }
+        task.fetch() { currencies in
+            assert(currencies != nil)
             exp.fulfill()
         }
 
