@@ -28,12 +28,13 @@ class CurrencyPresenter {
     private(set) var currentNumebr: Float = 1
     private var timer: Timer?
     private let fileManager = RateFileManager()
+    private let userDefaultManager = UserDefaultManager()
     weak var view: CurrencyViewControllerUseCase?
 
     func viewDidLoad() {
         setupExchangeRatesFromFile()
         fetchCurrencies()
-        fetchExchangeRates()
+        fetchExchangeRatesIfNeed()
         view?.updateTextField(number: currentNumebr)
         view?.updateCurrencyButton(title: currentCurrency)
     }
@@ -62,7 +63,7 @@ class CurrencyPresenter {
 
     private func setupTimer(interval: TimeInterval) {
         timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: {_ in
-            self.fetchExchangeRates()
+            self.fetchExchangeRatesIfNeed()
         })
     }
 
@@ -85,11 +86,25 @@ class CurrencyPresenter {
         view?.updateExchangeRatesTableView()
     }
 
+    private func fetchExchangeRatesIfNeed() {
+        guard let lastFetchDate = userDefaultManager.getFileSavedTime() else {
+            fetchExchangeRates()
+            return
+        }
+        let now = Date.timeIntervalSinceReferenceDate
+
+        if (now - lastFetchDate) > 30 * 60 {
+            fetchExchangeRates()
+        }
+    }
+
     private func fetchExchangeRates() {
         let task = FetchExchangeRatesTask()
         task.fetch() { [weak self] exchageRates in
             guard let self = self, let exchageRates = exchageRates else { return }
             _ = self.fileManager.saveRate(exchageRates)
+            let time = Date.timeIntervalSinceReferenceDate
+            self.userDefaultManager.saveFileSavedTime(sinceRefereceTime: time)
             self.exchageRates = exchageRates
             self.view?.updateExchangeRatesTableView()
         }
