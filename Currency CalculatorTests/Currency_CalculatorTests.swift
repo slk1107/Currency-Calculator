@@ -23,6 +23,27 @@ class APITests: XCTestCase {
         _ = NetworkConstants.Currencylayer.domainURL
     }
 
+    func testFetchCurrencies() throws {
+        let exp = expectation(description: "")
+
+        let task = FetchCurrenciesTask()
+
+        task.fetch() { data in
+            assert(data != nil)
+
+            if let data = data,
+                let dataString = String(data: data, encoding: .utf8) {
+                print(dataString)
+            } else {
+                assertionFailure("data encode fail")
+            }
+            exp.fulfill()
+        }
+
+        waitForExpectations(timeout: 3)
+    }
+
+
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

@@ -11,7 +11,8 @@ import Foundation
 struct NetworkConstants {
     struct Currencylayer {
         static let domain = "http://api.currencylayer.com"
-        static let accessKey = "73c6bad2797ef52b1800c2c043f15a47"
+        static let accessKeyKey = "access_key"
+        static let accessKeyValue = "73c6bad2797ef52b1800c2c043f15a47"
     }
 }
 
