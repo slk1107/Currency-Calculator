@@ -30,6 +30,7 @@ class APITests: XCTestCase {
 
         task.fetch() { currencies in
             assert(currencies != nil)
+            print(currencies!)
             exp.fulfill()
         }
 
@@ -41,15 +42,9 @@ class APITests: XCTestCase {
 
         let task = FetchExchangeRatesTask()
 
-        task.fetch() { data in
-            assert(data != nil)
-
-            if let data = data,
-                let dataString = String(data: data, encoding: .utf8) {
-                print(dataString)
-            } else {
-                assertionFailure("data encode fail")
-            }
+        task.fetch() { exchangeDic in
+            assert(exchangeDic != nil)
+            print(exchangeDic!)
             exp.fulfill()
         }
 
