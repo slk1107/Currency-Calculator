@@ -51,6 +51,7 @@ class CurrencyViewController: UIViewController {
     }
 
     private func setupPickerView() {
+        currencyPickerView.delegate = self
         currencyPickerView.dataSource = self
         currencyPickerView.isHidden = true
     }
@@ -84,7 +85,7 @@ class CurrencyViewController: UIViewController {
     }
 }
 
-extension CurrencyViewController: UIPickerViewDataSource {
+extension CurrencyViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return presenter.currencies?[row].name
     }
