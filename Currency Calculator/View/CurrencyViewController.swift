@@ -90,7 +90,6 @@ extension CurrencyViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         return presenter.currencies?[row].name
     }
 
-
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
 

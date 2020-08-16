@@ -10,6 +10,7 @@ import Foundation
 
 class CurrencyPresenter {
 
+    weak var view: CurrencyViewControllerUseCase?
     var currencies: [Currency]?
     var changeRateResults: [ExchangeRateResult]? {
         guard let exchageRates = exchageRates,
@@ -29,7 +30,7 @@ class CurrencyPresenter {
     private var timer: Timer?
     private let fileManager = RateFileManager()
     private let userDefaultManager = UserDefaultManager()
-    weak var view: CurrencyViewControllerUseCase?
+    private let requestInterval: TimeInterval = 30 * 60
 
     func viewDidLoad() {
         setupExchangeRatesFromFile()
@@ -40,7 +41,7 @@ class CurrencyPresenter {
     }
 
     func viewDidAppear() {
-        setupTimer(interval: 30 * 60)
+        setupTimer(interval: requestInterval)
     }
 
     func viewWillDisappear() {
@@ -93,7 +94,7 @@ class CurrencyPresenter {
         }
         let now = Date.timeIntervalSinceReferenceDate
 
-        if (now - lastFetchDate) > 30 * 60 {
+        if (now - lastFetchDate) > requestInterval {
             fetchExchangeRates()
         }
     }
