@@ -34,6 +34,7 @@ class CurrencyViewController: UIViewController {
         setupTableView()
         setupPickerView()
         setupButton()
+        setupTextField()
     }
 
     private func setupTableView() {
@@ -48,6 +49,11 @@ class CurrencyViewController: UIViewController {
 
     private func setupButton() {
         currencyButton.setTitle("Done", for: .selected)
+    }
+
+    private func setupTextField() {
+        inputTextField.text = "1"
+        inputTextField.delegate = self
     }
 
     @IBAction func currencyButtonDidClick(_ sender: Any) {
@@ -111,8 +117,24 @@ extension CurrencyViewController: UITableViewDataSource {
         cell.exchangeRateLabel.text = String(exchangeRate[indexPath.row].value)
         return cell
     }
+}
 
+extension CurrencyViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
 
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField.text?.count == 0 && string == "0" {
+            return false
+        }
+        return string == string.filter("0123456789".contains)
+    }
 }
 
 extension CurrencyViewController: CurrencyViewControllerUseCase {
