@@ -48,6 +48,7 @@ class CurrencyViewController: UIViewController {
 
     private func setupTableView() {
         exchangeRatesTableView.dataSource = self
+        exchangeRatesTableView.rowHeight = 44
     }
 
     private func setupPickerView() {
