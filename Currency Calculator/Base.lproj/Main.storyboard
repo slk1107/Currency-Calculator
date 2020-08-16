@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,79 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Currency_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y3G-aR-SII">
+                                <rect key="frame" x="32" y="108" width="288" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCs-BN-jdc">
+                                <rect key="frame" x="336" y="108" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lFO-MN-h7n">
+                                <rect key="frame" x="32" y="206" width="350" height="592"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EUB-cf-Yqr" customClass="ExchangeRatesTableViewCell" customModule="Currency_Calculator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="350" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EUB-cf-Yqr" id="Omd-0T-ai4">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMh-8M-8Hc">
+                                                    <rect key="frame" x="36" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkN-aS-ZgJ">
+                                                    <rect key="frame" x="272" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MMh-8M-8Hc" firstAttribute="centerY" secondItem="Omd-0T-ai4" secondAttribute="centerY" id="9Kg-Cb-khp"/>
+                                                <constraint firstItem="UkN-aS-ZgJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MMh-8M-8Hc" secondAttribute="trailing" constant="8" symbolic="YES" id="Sgj-kB-9aM"/>
+                                                <constraint firstItem="MMh-8M-8Hc" firstAttribute="leading" secondItem="Omd-0T-ai4" secondAttribute="leadingMargin" constant="16" id="Svh-Kq-NDA"/>
+                                                <constraint firstItem="UkN-aS-ZgJ" firstAttribute="centerY" secondItem="Omd-0T-ai4" secondAttribute="centerY" id="epf-P7-QLV"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UkN-aS-ZgJ" secondAttribute="trailing" constant="16" id="iKg-xu-Z6n"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lFO-MN-h7n" firstAttribute="top" secondItem="y3G-aR-SII" secondAttribute="bottom" constant="64" id="011-lt-Iz7"/>
+                            <constraint firstItem="NCs-BN-jdc" firstAttribute="top" secondItem="y3G-aR-SII" secondAttribute="top" id="M0F-VV-dhp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lFO-MN-h7n" secondAttribute="bottom" constant="64" id="NeZ-xm-cVm"/>
+                            <constraint firstItem="y3G-aR-SII" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="TMH-dF-f37"/>
+                            <constraint firstItem="lFO-MN-h7n" firstAttribute="trailing" secondItem="NCs-BN-jdc" secondAttribute="trailing" id="VLs-D1-aqR"/>
+                            <constraint firstItem="lFO-MN-h7n" firstAttribute="leading" secondItem="y3G-aR-SII" secondAttribute="leading" id="dGD-0I-QYl"/>
+                            <constraint firstItem="NCs-BN-jdc" firstAttribute="leading" secondItem="y3G-aR-SII" secondAttribute="trailing" constant="16" id="ekL-zc-J5k"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NCs-BN-jdc" secondAttribute="trailing" constant="32" id="fsF-sG-LDk"/>
+                            <constraint firstItem="y3G-aR-SII" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="hq1-Qz-v0b"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="currencyButton" destination="NCs-BN-jdc" id="im5-M4-uiX"/>
+                        <outlet property="exchangeRatesTableView" destination="lFO-MN-h7n" id="RCD-f2-Rr7"/>
+                        <outlet property="inputTextField" destination="y3G-aR-SII" id="bbA-R8-cII"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="75"/>
         </scene>
     </scenes>
 </document>
