@@ -27,6 +27,7 @@ class CurrencyPresenter {
     private var currentCurrency: String = "USD"
     private(set) var currentNumebr: Float = 1
     private var timer: Timer?
+    private let fileManager = RateFileManager()
     weak var view: CurrencyViewControllerUseCase?
 
     func viewDidLoad() {
@@ -81,7 +82,8 @@ class CurrencyPresenter {
     private func fetchExChangeRates() {
         let task = FetchExchangeRatesTask()
         task.fetch() { [weak self] exchageRates in
-            guard let self = self else { return }
+            guard let self = self, let exchageRates = exchageRates else { return }
+            _ = self.fileManager.save(rate: exchageRates)
             self.exchageRates = exchageRates
             self.view?.updateExchangeRatesTableView()
         }

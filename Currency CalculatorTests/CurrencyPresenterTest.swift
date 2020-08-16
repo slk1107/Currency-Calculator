@@ -23,13 +23,8 @@ class CurrencyPresenterTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testFetchCurrencies() throws {
-        presenter.fetchCurrencies()
-        waitForExpectations(timeout: 3)
-    }
-
-    func testFetchExchangeRates() {
-        presenter.fetchExChangeRates()
+    func testViewDidLoad() throws {
+        presenter.viewDidLoad()
         waitForExpectations(timeout: 3)
     }
 
@@ -43,8 +38,20 @@ class CurrencyPresenterTest: XCTestCase {
 }
 
 extension CurrencyPresenterTest: CurrencyViewControllerUseCase {
+    func updateCurrencyPicker() {
+
+    }
+
+    func updateCurrencyButton(title: String) {
+
+    }
+
+    func updateTextField(number: Float) {
+        
+    }
+
     func updateExchangeRatesTableView() {
-        assert(presenter.exchageRates != nil)
+        assert(presenter.changeRateResults != nil)
         exp?.fulfill()
     }
 
