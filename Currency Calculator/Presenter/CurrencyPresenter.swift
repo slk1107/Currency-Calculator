@@ -11,7 +11,16 @@ import Foundation
 class CurrencyPresenter {
 
     var currencies: [Currency]?
-    var exchageRates: [String: Float]?
+    var changeRateResults: [ExchangeRateResult]? {
+        guard let exchageRates = exchageRates else {
+            return nil
+        }
+
+        return exchageRates.map {
+            return ExchangeRateResult(currency: $0.key, value: $0.value)
+        }
+    }
+    private var exchageRates: [String: Float]?
     weak var view: CurrencyViewControllerUseCase?
 
     func viewDidLoad() {

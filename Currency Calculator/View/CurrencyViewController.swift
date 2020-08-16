@@ -31,8 +31,13 @@ class CurrencyViewController: UIViewController {
     }
 
     private func setupUI() {
+        setupTableView()
         setupPickerView()
         setupButton()
+    }
+
+    private func setupTableView() {
+        exchangeRatesTableView.dataSource = self
     }
 
     private func setupPickerView() {
@@ -87,9 +92,32 @@ extension CurrencyViewController: UIPickerViewDataSource {
     }
 }
 
+extension CurrencyViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let exchangeRates = presenter.changeRateResults {
+            return exchangeRates.count
+        } else {
+            return 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExchangeRatesTableViewCell") as? ExchangeRatesTableViewCell,
+            let exchangeRate = presenter.changeRateResults else {
+            return UITableViewCell()
+        }
+
+        cell.currencyLabel.text = exchangeRate[indexPath.row].currency
+        cell.exchangeRateLabel.text = String(exchangeRate[indexPath.row].value)
+        return cell
+    }
+
+
+}
+
 extension CurrencyViewController: CurrencyViewControllerUseCase {
     func updateExchangeRatesTableView() {
-        //
+        exchangeRatesTableView.reloadData()
     }
 
     func updateCurrencyPicker() {
