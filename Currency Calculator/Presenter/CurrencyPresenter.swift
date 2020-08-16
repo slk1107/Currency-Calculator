@@ -12,20 +12,39 @@ class CurrencyPresenter {
 
     var currencies: [Currency]?
     var changeRateResults: [ExchangeRateResult]? {
-        guard let exchageRates = exchageRates else {
+        guard let exchageRates = exchageRates,
+        let base = exchageRates[currentCurrency] else {
             return nil
         }
 
         return exchageRates.map {
-            return ExchangeRateResult(currency: $0.key, value: $0.value)
+            let value = $0.value * currentNumebr / base
+            return ExchangeRateResult(currency: $0.key, value: value)
         }
     }
+
     private var exchageRates: [String: Float]?
+    private(set) var currentCurrency: String = "USD"
+    private(set) var currentNumebr: Float = 1
     weak var view: CurrencyViewControllerUseCase?
 
     func viewDidLoad() {
         fetchCurrencies()
         fetchExChangeRates()
+    }
+
+    func numberDidInput(number: Float) {
+        currentNumebr = number
+        view?.updateExchangeRatesTableView()
+    }
+
+    func currencyDidSelect(atIndex index: Int) {
+        if let currency = currencies?[index].key,
+            currency != currentCurrency {
+            currentCurrency = currency
+            view?.updateCurrencyButton(title: currency)
+            view?.updateExchangeRatesTableView()
+        }
     }
 
     private func fetchCurrencies() {

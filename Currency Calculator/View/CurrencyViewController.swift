@@ -11,6 +11,7 @@ import UIKit
 protocol CurrencyViewControllerUseCase: AnyObject {
     func updateExchangeRatesTableView()
     func updateCurrencyPicker()
+    func updateCurrencyButton(title: String)
 }
 
 class CurrencyViewController: UIViewController {
@@ -57,6 +58,7 @@ class CurrencyViewController: UIViewController {
     }
 
     @IBAction func currencyButtonDidClick(_ sender: Any) {
+        dismissKeyboardIfNeed()
 
         let shouldShowPicker = currencyPickerView.isHidden
         if shouldShowPicker {
@@ -66,10 +68,13 @@ class CurrencyViewController: UIViewController {
             currencyButton.isSelected = false
             currencyPickerView.isHidden = true
             let selectedIndex = currencyPickerView.selectedRow(inComponent: 0)
-            currencyButton.setTitle(presenter.currencies?[selectedIndex].key, for: .normal)
+            presenter.currencyDidSelect(atIndex: selectedIndex)
         }
     }
-    
+
+    private func dismissKeyboardIfNeed() {
+        inputTextField.resignFirstResponder()
+    }
 }
 
 extension CurrencyViewController: UIPickerViewDelegate {
@@ -124,7 +129,10 @@ extension CurrencyViewController: UITableViewDataSource {
 
 extension CurrencyViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-
+        guard let text = textField.text, let number = Float(text) else {
+            return
+        }
+        presenter.numberDidInput(number: number)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -136,7 +144,7 @@ extension CurrencyViewController: UITextFieldDelegate {
         if textField.text?.count == 0 && string == "0" {
             return false
         }
-        return string == string.filter("0123456789".contains)
+        return string == string.filter("0123456789.".contains)
     }
 }
 
@@ -149,6 +157,8 @@ extension CurrencyViewController: CurrencyViewControllerUseCase {
         currencyPickerView.reloadAllComponents()
     }
 
-
+    func updateCurrencyButton(title: String) {
+        currencyButton.setTitle(title, for: .normal)
+    }
 }
 
