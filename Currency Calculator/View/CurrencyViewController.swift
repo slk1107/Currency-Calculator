@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CurrencyViewController.swift
 //  Currency Calculator
 //
 //  Created by Kris on 2020/8/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CurrencyViewController: UIViewController {
 
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var currencyButton: UIButton!
