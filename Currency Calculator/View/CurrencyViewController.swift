@@ -51,7 +51,6 @@ class CurrencyViewController: UIViewController {
     }
 
     private func setupPickerView() {
-        currencyPickerView.delegate = self
         currencyPickerView.dataSource = self
         currencyPickerView.isHidden = true
     }
@@ -82,12 +81,6 @@ class CurrencyViewController: UIViewController {
 
     private func dismissKeyboardIfNeed() {
         inputTextField.resignFirstResponder()
-    }
-}
-
-extension CurrencyViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("row: \(row)")
     }
 }
 
