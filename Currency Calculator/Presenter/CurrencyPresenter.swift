@@ -24,13 +24,15 @@ class CurrencyPresenter {
     }
 
     private var exchageRates: [String: Float]?
-    private(set) var currentCurrency: String = "USD"
+    private var currentCurrency: String = "USD"
     private(set) var currentNumebr: Float = 1
     weak var view: CurrencyViewControllerUseCase?
 
     func viewDidLoad() {
         fetchCurrencies()
         fetchExChangeRates()
+        view?.updateTextField(number: currentNumebr)
+        view?.updateCurrencyButton(title: currentCurrency)
     }
 
     func numberDidInput(number: Float) {

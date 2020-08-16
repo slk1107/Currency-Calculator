@@ -12,6 +12,7 @@ protocol CurrencyViewControllerUseCase: AnyObject {
     func updateExchangeRatesTableView()
     func updateCurrencyPicker()
     func updateCurrencyButton(title: String)
+    func updateTextField(number: Float)
 }
 
 class CurrencyViewController: UIViewController {
@@ -159,6 +160,10 @@ extension CurrencyViewController: CurrencyViewControllerUseCase {
 
     func updateCurrencyButton(title: String) {
         currencyButton.setTitle(title, for: .normal)
+    }
+
+    func updateTextField(number: Float) {
+        inputTextField.text = String(number)
     }
 }
 
