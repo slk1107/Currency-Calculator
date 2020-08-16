@@ -21,6 +21,11 @@ struct ExchangeRatesResponse: Decodable {
                 continue
             }
 
+            if key == "\(source)\(source)" {
+                newDic[source] = value
+                continue
+            }
+
             newDic[newKey] = value
         }
         return newDic
