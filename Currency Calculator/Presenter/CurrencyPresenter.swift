@@ -14,7 +14,12 @@ class CurrencyPresenter {
     var exchageRates: [String: Float]?
     weak var view: CurrencyViewControllerUseCase?
 
-    func fetchCurrencies() {
+    func viewDidLoad() {
+        fetchCurrencies()
+        fetchExChangeRates()
+    }
+
+    private func fetchCurrencies() {
         let task = FetchCurrenciesTask()
         task.fetch() { [weak self] currencies in
             guard let self = self else { return }
@@ -23,7 +28,7 @@ class CurrencyPresenter {
         }
     }
 
-    func fetchExChangeRates() {
+    private func fetchExChangeRates() {
         let task = FetchExchangeRatesTask()
         task.fetch() { [weak self] exchageRates in
             guard let self = self else { return }
