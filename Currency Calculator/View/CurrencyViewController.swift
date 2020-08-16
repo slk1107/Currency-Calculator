@@ -114,7 +114,10 @@ extension CurrencyViewController: UITableViewDataSource {
         }
 
         cell.currencyLabel.text = exchangeRate[indexPath.row].currency
-        cell.exchangeRateLabel.text = String(exchangeRate[indexPath.row].value)
+
+        let value = exchangeRate[indexPath.row].value
+        let roundValue = round(100 * value)/100
+        cell.exchangeRateLabel.text = String(roundValue)
         return cell
     }
 }
