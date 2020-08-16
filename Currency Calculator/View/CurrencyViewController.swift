@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol CurrencyViewControllerUseCase: AnyObject {
+    func updateTableView()
+    func updatePicker()
+}
+
 class CurrencyViewController: UIViewController {
 
     @IBOutlet weak var inputTextField: UITextField!

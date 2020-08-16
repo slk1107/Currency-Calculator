@@ -8,6 +8,27 @@
 
 import Foundation
 
-class Presenter {
-    
+class CurrencyPresenter {
+
+    var currencies: [Currency]?
+    var exchageRates: [String: Float]?
+    weak var view: CurrencyViewControllerUseCase?
+
+    func fetchCurrencies() {
+        let task = FetchCurrenciesTask()
+        task.fetch() { [weak self] currencies in
+            guard let self = self else { return }
+            self.currencies = currencies
+            self.view?.updatePicker()
+        }
+    }
+
+    func fetchExChangeRates() {
+        let task = FetchExchangeRatesTask()
+        task.fetch() { [weak self] exchageRates in
+            guard let self = self else { return }
+            self.exchageRates = exchageRates
+            self.view?.updateTableView()
+        }
+    }
 }
