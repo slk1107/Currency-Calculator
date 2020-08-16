@@ -16,6 +16,7 @@
 		01981BEB24E9A31000E990B1 /* Currency_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01981BEA24E9A31000E990B1 /* Currency_CalculatorTests.swift */; };
 		01981BF724E9A49300E990B1 /* FetchCurrenciesTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01981BF624E9A49300E990B1 /* FetchCurrenciesTask.swift */; };
 		01981BFB24E9A4F000E990B1 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01981BFA24E9A4F000E990B1 /* NetworkConstants.swift */; };
+		01981BFD24E9ABF500E990B1 /* FetchExchangeRatesTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01981BFC24E9ABF500E990B1 /* FetchExchangeRatesTask.swift */; };
 		AB34029A05CF4D9F5A10A221 /* Pods_Currency_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F217085E8E3FF3AED41AE79 /* Pods_Currency_Calculator.framework */; };
 		B12AD83B846648FDD81FFD0B /* Pods_Currency_CalculatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A84FF7BC00160A15C84841 /* Pods_Currency_CalculatorTests.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		01981BEC24E9A31000E990B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01981BF624E9A49300E990B1 /* FetchCurrenciesTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrenciesTask.swift; sourceTree = "<group>"; };
 		01981BFA24E9A4F000E990B1 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		01981BFC24E9ABF500E990B1 /* FetchExchangeRatesTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchExchangeRatesTask.swift; sourceTree = "<group>"; };
 		11A84FF7BC00160A15C84841 /* Pods_Currency_CalculatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_CalculatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31C73E8E1B5BE7C6C9193C52 /* Pods-Currency Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency Calculator.debug.xcconfig"; path = "Target Support Files/Pods-Currency Calculator/Pods-Currency Calculator.debug.xcconfig"; sourceTree = "<group>"; };
 		383853C87F034F8883E291B5 /* Pods-Currency CalculatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency CalculatorTests.debug.xcconfig"; path = "Target Support Files/Pods-Currency CalculatorTests/Pods-Currency CalculatorTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				01981BF624E9A49300E990B1 /* FetchCurrenciesTask.swift */,
+				01981BFC24E9ABF500E990B1 /* FetchExchangeRatesTask.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				01981BFB24E9A4F000E990B1 /* NetworkConstants.swift in Sources */,
 				01981BD424E9A30900E990B1 /* AppDelegate.swift in Sources */,
 				01981BD624E9A30900E990B1 /* SceneDelegate.swift in Sources */,
+				01981BFD24E9ABF500E990B1 /* FetchExchangeRatesTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

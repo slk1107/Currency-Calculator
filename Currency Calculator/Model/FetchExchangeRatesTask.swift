@@ -1,5 +1,5 @@
 //
-//  FetchCurrenciesTask.swift
+//  FetchExchangeRatesTask.swift
 //  Currency Calculator
 //
 //  Created by Kris on 2020/8/17.
@@ -9,8 +9,8 @@
 import Foundation
 import Alamofire
 
-class FetchCurrenciesTask {
-    let requestURL = NetworkConstants.Currencylayer.domainURL.appendingPathComponent(NetworkConstants.Currencylayer.API.list)
+class FetchExchangeRatesTask {
+    let requestURL = NetworkConstants.Currencylayer.domainURL.appendingPathComponent(NetworkConstants.Currencylayer.API.live)
     let params = [NetworkConstants.Currencylayer.accessKeyKey:
         NetworkConstants.Currencylayer.accessKeyValue]
 

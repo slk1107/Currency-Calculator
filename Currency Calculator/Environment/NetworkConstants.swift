@@ -13,6 +13,11 @@ struct NetworkConstants {
         static let domain = "http://api.currencylayer.com"
         static let accessKeyKey = "access_key"
         static let accessKeyValue = "73c6bad2797ef52b1800c2c043f15a47"
+
+        struct API {
+            static let live = "live"
+            static let list = "list"
+        }
     }
 }
 
