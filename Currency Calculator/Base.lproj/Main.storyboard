@@ -56,6 +56,10 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="UkN-aS-ZgJ" secondAttribute="trailing" constant="16" id="iKg-xu-Z6n"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="currencyLabel" destination="MMh-8M-8Hc" id="OtI-bL-USV"/>
+                                            <outlet property="exchangeRateLabel" destination="UkN-aS-ZgJ" id="dC3-IB-Z4f"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

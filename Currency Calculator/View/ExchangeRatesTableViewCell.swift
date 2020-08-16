@@ -10,6 +10,8 @@ import UIKit
 
 class ExchangeRatesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var currencyLabel: UILabel!
+    @IBOutlet weak var exchangeRateLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
