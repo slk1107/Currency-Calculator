@@ -28,7 +28,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lFO-MN-h7n">
-                                <rect key="frame" x="32" y="206" width="350" height="592"/>
+                                <rect key="frame" x="32" y="206" width="350" height="531"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExchangeRatesTableViewCell" id="EUB-cf-Yqr" customClass="ExchangeRatesTableViewCell" customModule="Currency_Calculator" customModuleProvider="target">
@@ -67,7 +67,10 @@
                                 </prototypes>
                             </tableView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96z-52-qqt">
-                                <rect key="frame" x="0.0" y="646" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="737" width="414" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="HVc-vi-jPq"/>
+                                </constraints>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -75,7 +78,6 @@
                             <constraint firstItem="lFO-MN-h7n" firstAttribute="top" secondItem="y3G-aR-SII" secondAttribute="bottom" constant="64" id="011-lt-Iz7"/>
                             <constraint firstAttribute="trailing" secondItem="96z-52-qqt" secondAttribute="trailing" id="H3X-n3-9XJ"/>
                             <constraint firstItem="NCs-BN-jdc" firstAttribute="top" secondItem="y3G-aR-SII" secondAttribute="top" id="M0F-VV-dhp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lFO-MN-h7n" secondAttribute="bottom" constant="64" id="NeZ-xm-cVm"/>
                             <constraint firstItem="96z-52-qqt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TCy-JV-W97"/>
                             <constraint firstItem="y3G-aR-SII" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="TMH-dF-f37"/>
                             <constraint firstItem="lFO-MN-h7n" firstAttribute="trailing" secondItem="NCs-BN-jdc" secondAttribute="trailing" id="VLs-D1-aqR"/>
@@ -84,6 +86,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NCs-BN-jdc" secondAttribute="trailing" constant="32" id="fsF-sG-LDk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="96z-52-qqt" secondAttribute="bottom" id="fwP-Q6-RnC"/>
                             <constraint firstItem="y3G-aR-SII" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="hq1-Qz-v0b"/>
+                            <constraint firstItem="96z-52-qqt" firstAttribute="top" secondItem="lFO-MN-h7n" secondAttribute="bottom" id="sJ0-vO-YLf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
