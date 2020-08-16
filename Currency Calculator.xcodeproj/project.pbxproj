@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0168373624E9B95300D60A89 /* ExchangeRatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0168373524E9B95300D60A89 /* ExchangeRatesTableViewCell.swift */; };
+		0168373A24E9BA1400D60A89 /* CurrencyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0168373924E9BA1400D60A89 /* CurrencyPresenter.swift */; };
 		01981BD424E9A30900E990B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01981BD324E9A30900E990B1 /* AppDelegate.swift */; };
 		01981BD624E9A30900E990B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01981BD524E9A30900E990B1 /* SceneDelegate.swift */; };
 		01981BD824E9A30900E990B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01981BD724E9A30900E990B1 /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		0168373524E9B95300D60A89 /* ExchangeRatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesTableViewCell.swift; sourceTree = "<group>"; };
+		0168373924E9BA1400D60A89 /* CurrencyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPresenter.swift; sourceTree = "<group>"; };
 		01981BD024E9A30900E990B1 /* Currency Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01981BD324E9A30900E990B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01981BD524E9A30900E990B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,9 +81,18 @@
 		0168373424E9B92D00D60A89 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01981BD724E9A30900E990B1 /* ViewController.swift */,
 				0168373524E9B95300D60A89 /* ExchangeRatesTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0168373824E9B9E900D60A89 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0168373924E9BA1400D60A89 /* CurrencyPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		01981BC724E9A30900E990B1 = {
@@ -107,11 +118,9 @@
 		01981BD224E9A30900E990B1 /* Currency Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				0168373824E9B9E900D60A89 /* Presenter */,
 				01981BF924E9A4CF00E990B1 /* Environment */,
 				01981BF524E9A47600E990B1 /* Model */,
-				01981BD324E9A30900E990B1 /* AppDelegate.swift */,
-				01981BD524E9A30900E990B1 /* SceneDelegate.swift */,
-				01981BD724E9A30900E990B1 /* ViewController.swift */,
 				0168373424E9B92D00D60A89 /* View */,
 				01981BD924E9A30900E990B1 /* Main.storyboard */,
 				01981BDC24E9A31000E990B1 /* Assets.xcassets */,
@@ -142,6 +151,8 @@
 		01981BF924E9A4CF00E990B1 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				01981BD324E9A30900E990B1 /* AppDelegate.swift */,
+				01981BD524E9A30900E990B1 /* SceneDelegate.swift */,
 				01981BFA24E9A4F000E990B1 /* NetworkConstants.swift */,
 			);
 			path = Environment;
@@ -340,6 +351,7 @@
 				01981BFB24E9A4F000E990B1 /* NetworkConstants.swift in Sources */,
 				01981BD424E9A30900E990B1 /* AppDelegate.swift in Sources */,
 				0168373624E9B95300D60A89 /* ExchangeRatesTableViewCell.swift in Sources */,
+				0168373A24E9BA1400D60A89 /* CurrencyPresenter.swift in Sources */,
 				01981BD624E9A30900E990B1 /* SceneDelegate.swift in Sources */,
 				01981BFD24E9ABF500E990B1 /* FetchExchangeRatesTask.swift in Sources */,
 			);
