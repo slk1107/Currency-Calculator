@@ -20,12 +20,13 @@ class CurrencyPresenter {
         return exchageRates.map {
             let value = $0.value * currentNumebr / base
             return ExchangeRateResult(currency: $0.key, value: value)
-        }
+        }.sorted { $0.currency < $1.currency }
     }
 
     private var exchageRates: [String: Float]?
     private var currentCurrency: String = "USD"
     private(set) var currentNumebr: Float = 1
+    private var timer: Timer?
     weak var view: CurrencyViewControllerUseCase?
 
     func viewDidLoad() {
@@ -33,6 +34,14 @@ class CurrencyPresenter {
         fetchExChangeRates()
         view?.updateTextField(number: currentNumebr)
         view?.updateCurrencyButton(title: currentCurrency)
+    }
+
+    func viewDidAppear() {
+        setupTimer(interval: 30 * 60)
+    }
+
+    func viewWillDisappear() {
+        stopTimer()
     }
 
     func numberDidInput(number: Float) {
@@ -47,6 +56,17 @@ class CurrencyPresenter {
             view?.updateCurrencyButton(title: currency)
             view?.updateExchangeRatesTableView()
         }
+    }
+
+    private func setupTimer(interval: TimeInterval) {
+        timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: {_ in
+            self.fetchExChangeRates()
+        })
+    }
+
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
     }
 
     private func fetchCurrencies() {

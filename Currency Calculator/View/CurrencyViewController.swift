@@ -29,7 +29,14 @@ class CurrencyViewController: UIViewController {
         setupUI()
         presenter.view = self
         presenter.viewDidLoad()
-        // Do any additional setup after loading the view.
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        presenter.viewDidAppear()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        presenter.viewWillDisappear()
     }
 
     private func setupUI() {
