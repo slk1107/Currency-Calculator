@@ -9,17 +9,35 @@
 import Foundation
 class RateFileManager {
     let filename = "rate.cache"
-    func save(rate: [String: Float]) -> Bool {
-        guard var directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+
+    var fileURL: URL? {
+        var dic = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        dic?.appendPathComponent(filename)
+        return dic
+    }
+
+    func saveRate(_ rate: [String: Float]) -> Bool {
+        guard let url = fileURL else {
             return false
         }
-        directory.appendPathComponent(filename)
         let tempDic = NSMutableDictionary(dictionary: rate)
         do {
-            try tempDic.write(to: directory)
+            try tempDic.write(to: url)
             return true
         } catch {
             return false
         }
     }
+
+    func readRate() -> [String: Float]? {
+        guard let url = fileURL else {
+            return nil
+        }
+        if let dictionary = NSMutableDictionary(contentsOf: url) as? [String : Float] {
+            return dictionary
+        } else {
+            return nil
+        }
+    }
+
 }

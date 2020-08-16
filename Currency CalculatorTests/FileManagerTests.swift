@@ -20,8 +20,22 @@ class FileManagerTests: XCTestCase {
     }
 
     func testSave() throws {
-        let result = fileManager.save(rate: ["Test": 0.1])
+        let result = fileManager.saveRate(["Test": 0.1])
         assert(result)
+    }
+
+    func testRead() {
+        guard let fileURL = fileManager.fileURL else {
+            return
+        }
+
+        let dic = fileManager.readRate()
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            assert(dic != nil)
+        } else {
+            assert(dic == nil)
+        }
+
     }
 
     func testPerformanceExample() throws {

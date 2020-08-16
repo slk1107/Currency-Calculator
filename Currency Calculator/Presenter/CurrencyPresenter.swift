@@ -83,7 +83,7 @@ class CurrencyPresenter {
         let task = FetchExchangeRatesTask()
         task.fetch() { [weak self] exchageRates in
             guard let self = self, let exchageRates = exchageRates else { return }
-            _ = self.fileManager.save(rate: exchageRates)
+            _ = self.fileManager.saveRate(exchageRates)
             self.exchageRates = exchageRates
             self.view?.updateExchangeRatesTableView()
         }
